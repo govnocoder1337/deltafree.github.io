@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Delta Free (Test)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #121212;
+      color: #eee;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(90deg, #7e1f1f, #2a0000);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    header img {
+      height: 80px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: #fff;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ff4e4e;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    .download-button, .telegram-button {
+      display: inline-block;
+      background: #e53935;
+      padding: 14px 28px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      margin: 10px 10px 0 0;
+      transition: 0.3s;
+      box-shadow: 0 4px 20px rgba(229, 57, 53, 0.5);
+    }
+
+    .telegram-button {
+      background: #2AABEE;
+      box-shadow: 0 4px 20px rgba(42, 171, 238, 0.5);
+    }
+
+    .download-button:hover {
+      background: #ff6b6b;
+      transform: scale(1.05);
+    }
+
+    .telegram-button:hover {
+      background: #39c2ff;
+      transform: scale(1.05);
+    }
+
+    .status {
+      color: #57f287;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #1a1a1a;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="deltalogo.png" alt="Delta Logo">
+    <h1>Delta Free (Test)</h1>
+  </header>
+
+  <div class="container">
+    <div class="section" id="about">
+      <h2>О нас</h2>
+      <p>
+        Delta Free (Test) — экспериментальный Minecraft чит-клиент с современным GUI, стабильной работой и полностью бесплатным доступом.
+        Разрабатывается для игроков, которым нужен функционал без лишнего мусора.
+      </p>
+      <p class="status">Клиент обновлен до v1.40</p>
+    </div>
+
+    <div class="section" id="download">
+      <h2>Скачать клиент</h2>
+      <a href="https://drive.google.com/file/d/18Z6OwwsnCKnvT6zmkhZm2bR5oXP_xQ5O/view?usp=sharing
+" class="download-button" target="_blank">Скачать</a>
+      <a href="https://t.me/delta_client_free" class="telegram-button" target="_blank">Telegram</a>
+    </div>
+
+    <div class="section" id="changelog">
+      <h2>Changelog v1.40</h2>
+      <p>• Добавлен новый вид TargetESP -> Delta</p>
+      <p>• Пофикшена KillAura -> Теперь не банит на Funtime, не флагает на Reallyworld</p>
+      <p>• Пофикшен TargetHUD -> Теперь обходит Reallyworld и Funtime</p>
+      <p>• Другие мелкие изменения</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Delta Client Free. Все права защищены.
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>
